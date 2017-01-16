@@ -17,10 +17,10 @@ import org.usfirst.frc295.TestDrivetrain.Robot;
 /**
  *
  */
-public class CmdDriveTrainSetForwardShooter extends Command
+public class CmdDriveTrainSetBackward extends Command
 {
 
-    public CmdDriveTrainSetForwardShooter() 
+    public CmdDriveTrainSetBackward() 
     {
     }
 

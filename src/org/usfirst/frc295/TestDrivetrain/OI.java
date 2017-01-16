@@ -76,12 +76,12 @@ public class OI
         SmartDashboard.putData("Cmd Drive Fast", new CmdDriveTrainSetFast());
 	
         JoystickButton _btnDriverB = new JoystickButton(_joystickDriver, 3);
-		_btnDriverB.whenPressed(new CmdDriveTrainSetForwardArm());
-        SmartDashboard.putData("Cmd Drive Forward Arm", new CmdDriveTrainSetForwardArm());	
+		_btnDriverB.whenPressed(new CmdDriveTrainSetForward());
+        SmartDashboard.putData("Cmd Drive Forward Arm", new CmdDriveTrainSetForward());	
 		
         JoystickButton _btnDriverX = new JoystickButton(_joystickDriver, 2);
-		_btnDriverX.whenPressed(new CmdDriveTrainSetForwardShooter());
-        SmartDashboard.putData("Cmd Drive Forward Shooter", new CmdDriveTrainSetForwardShooter());
+		_btnDriverX.whenPressed(new CmdDriveTrainSetBackward());
+        SmartDashboard.putData("Cmd Drive Forward Shooter", new CmdDriveTrainSetBackward());
 
         
         //=====================================================================

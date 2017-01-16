@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -63,22 +63,22 @@ public class SysDriveTrain extends Subsystem
         // ==========================================================
         // SYS DRIVE TRAIN 
         // ==========================================================
-    	_escLeftFront = new Talon(RobotMap.PORT_DRIVE_ESC_LEFT_FRONT);
-        LiveWindow.addActuator("SysDriveTrain", "Esc Left Front", (Talon) _escLeftFront);
+    	_escLeftFront = new VictorSP(RobotMap.PWM_DRIVE_ESC_LEFT_FRONT);
+        LiveWindow.addActuator("SysDriveTrain", "Esc Left Front", (VictorSP) _escLeftFront);
         
-        _escLeftBack = new Talon(RobotMap.PORT_DRIVE_ESC_LEFT_BACK);
-        LiveWindow.addActuator("SysDriveTrain", "Esc Left Back", (Talon)  _escLeftBack);
+        _escLeftBack = new VictorSP(RobotMap.PWM_DRIVE_ESC_LEFT_BACK);
+        LiveWindow.addActuator("SysDriveTrain", "Esc Left Back", (VictorSP)  _escLeftBack);
         
-        _escRightFront = new Talon(RobotMap.PORT_DRIVE_ESC_RIGHT_FRONT);
-        LiveWindow.addActuator("SysDriveTrain", "Esc Right Front", (Talon) _escRightFront);
+        _escRightFront = new VictorSP(RobotMap.PWM_DRIVE_ESC_RIGHT_FRONT);
+        LiveWindow.addActuator("SysDriveTrain", "Esc Right Front", (VictorSP) _escRightFront);
         
-        _escRightBack = new Talon(RobotMap.PORT_DRIVE_ESC_RIGHT_BACK);
-        LiveWindow.addActuator("SysDriveTrain", "Esc Right Back", (Talon)  _escRightBack);
+        _escRightBack = new VictorSP(RobotMap.PWM_DRIVE_ESC_RIGHT_BACK);
+        LiveWindow.addActuator("SysDriveTrain", "Esc Right Back", (VictorSP)  _escRightBack);
 
         
 
         _robotDrive = new RobotDrive(_escLeftFront,  _escLeftBack,
-        										 _escRightFront, _escRightBack);
+        							 _escRightFront, _escRightBack);
 
         _robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft,  false);
         _robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
@@ -91,12 +91,12 @@ public class SysDriveTrain extends Subsystem
         _robotDrive.setMaxOutput(1.0);
 
 
-        _encoDriveRight = new Encoder(RobotMap.PORT_DRIVE_ENC_RIGHT_CHAN1, RobotMap.PORT_DRIVE_ENC_RIGHT_CHAN2, false, EncodingType.k4X);
+        _encoDriveRight = new Encoder(RobotMap.DIO_DRIVE_ENC_RIGHT_CHAN1, RobotMap.DIO_DRIVE_ENC_RIGHT_CHAN2, false, EncodingType.k4X);
         LiveWindow.addSensor("SysDriveTrain", "Enco Drive Right", _encoDriveRight);
         _encoDriveRight.setDistancePerPulse(1.0);
         _encoDriveRight.setPIDSourceType(PIDSourceType.kRate);
 
-        _encoDriveLeft = new Encoder(RobotMap.PORT_DRIVE_ENC_LEFT_CHAN1, RobotMap.PORT_DRIVE_ENC_LEFT_CHAN2, false, EncodingType.k4X);
+        _encoDriveLeft = new Encoder(RobotMap.DIO_DRIVE_ENC_LEFT_CHAN1, RobotMap.DIO_DRIVE_ENC_LEFT_CHAN2, false, EncodingType.k4X);
         LiveWindow.addSensor("SysDriveTrain", "Enco Drive Left", _encoDriveLeft);
         _encoDriveLeft.setDistancePerPulse(1.0);
         _encoDriveLeft.setPIDSourceType(PIDSourceType.kRate);
@@ -259,7 +259,6 @@ public class SysDriveTrain extends Subsystem
 		SmartDashboard.putNumber("Right Distance", _encoDriveRight.getDistance());
 		SmartDashboard.putNumber("Left Speed",     _encoDriveLeft.getRate());
 		SmartDashboard.putNumber("Right Speed",    _encoDriveRight.getRate());
-//		SmartDashboard.putNumber("Gyro", gyro.getAngle());
 	}
 }
 

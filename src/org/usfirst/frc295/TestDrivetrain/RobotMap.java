@@ -21,15 +21,23 @@ package org.usfirst.frc295.TestDrivetrain;
 public class RobotMap 
 {
 	
-    public static final   short  PORT_DRIVE_ESC_LEFT_FRONT             = 1;
-    public static final   short  PORT_DRIVE_ESC_LEFT_BACK              = 2;
-    public static final   short  PORT_DRIVE_ESC_RIGHT_FRONT            = 3;
-    public static final   short  PORT_DRIVE_ESC_RIGHT_BACK             = 4;
+	// CAN IDs
+    public static final   short  CAN_DRIVE_ESC_LEFT_FRONT             = 1;
+    public static final   short  CAN_DRIVE_ESC_LEFT_BACK              = 2;
+    public static final   short  CAN_DRIVE_ESC_RIGHT_FRONT            = 3;
+    public static final   short  CAN_DRIVE_ESC_RIGHT_BACK             = 4;	
+
+    // PWM PINS (0 - 20)
+    public static final   short  PWM_DRIVE_ESC_LEFT_FRONT             = 0;
+    public static final   short  PWM_DRIVE_ESC_LEFT_BACK              = 1;
+    public static final   short  PWM_DRIVE_ESC_RIGHT_FRONT            = 2;
+    public static final   short  PWM_DRIVE_ESC_RIGHT_BACK             = 3;
     
-    public static final   short  PORT_DRIVE_ENC_RIGHT_CHAN1            = 15;
-    public static final   short  PORT_DRIVE_ENC_RIGHT_CHAN2            = 16;
-    public static final   short  PORT_DRIVE_ENC_LEFT_CHAN1             = 17;
-    public static final   short  PORT_DRIVE_ENC_LEFT_CHAN2             = 18;
+    // DIGITAL IO PINS
+    public static final   short  DIO_DRIVE_ENC_RIGHT_CHAN1            = 0;
+    public static final   short  DIO_DRIVE_ENC_RIGHT_CHAN2            = 1;
+    public static final   short  DIO_DRIVE_ENC_LEFT_CHAN1             = 2;
+    public static final   short  DIO_DRIVE_ENC_LEFT_CHAN2             = 3;
 
     public static void init()
     {
