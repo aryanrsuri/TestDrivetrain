@@ -13,6 +13,7 @@ package org.usfirst.frc295.TestDrivetrain;
 
 import org.usfirst.frc295.TestDrivetrain.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -69,25 +70,23 @@ public class OI
         //=====================================================================
         JoystickButton _btnDriverA = new JoystickButton(_joystickDriver,1);
 		_btnDriverA.whenPressed(new CmdDriveTrainSetSlow());
-        SmartDashboard.putData("Cmd Drive Slow", new CmdDriveTrainSetSlow());
+        SmartDashboard.putData("Cmd Drive Slow", new CmdDriveTrainShifterSetLow());
 		
-        JoystickButton _btnDriverY = new JoystickButton(_joystickDriver, 4);
+        JoystickButton _btnDriverY = new JoystickButton(_joystickDriver, 2);
         _btnDriverY.whenPressed(new CmdDriveTrainSetFast());	
-        SmartDashboard.putData("Cmd Drive Fast", new CmdDriveTrainSetFast());
+        SmartDashboard.putData("Cmd Drive Fast", new CmdDriveTrainShifterSetHigh());
 	
         JoystickButton _btnDriverB = new JoystickButton(_joystickDriver, 3);
 		_btnDriverB.whenPressed(new CmdDriveTrainSetForward());
         SmartDashboard.putData("Cmd Drive Forward Arm", new CmdDriveTrainSetForward());	
 		
-        JoystickButton _btnDriverX = new JoystickButton(_joystickDriver, 2);
+        JoystickButton _btnDriverX = new JoystickButton(_joystickDriver, 4);
 		_btnDriverX.whenPressed(new CmdDriveTrainSetBackward());
         SmartDashboard.putData("Cmd Drive Forward Shooter", new CmdDriveTrainSetBackward());
 
-        
         //=====================================================================
         // OPERATOR JOYSTICK BUTTON COMMANDS 
         //=====================================================================
-
 
     }
 

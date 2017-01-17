@@ -32,11 +32,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class SysDriveTrain extends Subsystem 
 {
-    // ROBOT MAP INSTANTIATED OBJECTS REFERNCED HERE FOR EASY ACCESS
-    // Note (Mentor 2016): Not the best practice to do this but will play along
-    //                     Since these are just DriveTrain's "HAS A" objects, they should be created here
-    //                     I suspect that this is done so all configuration can be done in one place
-    //                     Therefore, don't configure and create configurable things anywhere but in RoboMap
     private SpeedController     _escLeftFront;
     private SpeedController     _escLeftBack;
     private SpeedController     _escRightFront;
@@ -63,26 +58,24 @@ public class SysDriveTrain extends Subsystem
         // ==========================================================
         // SYS DRIVE TRAIN 
         // ==========================================================
-    	_escLeftFront = new VictorSP(RobotMap.PWM_DRIVE_ESC_LEFT_FRONT);
+    	_escLeftFront = new VictorSP(RobotMap.PWM_ESC_DRIVE_LEFT_FRONT);
         LiveWindow.addActuator("SysDriveTrain", "Esc Left Front", (VictorSP) _escLeftFront);
         
-        _escLeftBack = new VictorSP(RobotMap.PWM_DRIVE_ESC_LEFT_BACK);
+        _escLeftBack = new VictorSP(RobotMap.PWM_ESC_DRIVE_LEFT_BACK);
         LiveWindow.addActuator("SysDriveTrain", "Esc Left Back", (VictorSP)  _escLeftBack);
         
-        _escRightFront = new VictorSP(RobotMap.PWM_DRIVE_ESC_RIGHT_FRONT);
+        _escRightFront = new VictorSP(RobotMap.PWM_ESC_DRIVE_RIGHT_FRONT);
         LiveWindow.addActuator("SysDriveTrain", "Esc Right Front", (VictorSP) _escRightFront);
         
-        _escRightBack = new VictorSP(RobotMap.PWM_DRIVE_ESC_RIGHT_BACK);
+        _escRightBack = new VictorSP(RobotMap.PWM_ESC_DRIVE_RIGHT_BACK);
         LiveWindow.addActuator("SysDriveTrain", "Esc Right Back", (VictorSP)  _escRightBack);
-
-        
 
         _robotDrive = new RobotDrive(_escLeftFront,  _escLeftBack,
         							 _escRightFront, _escRightBack);
 
         _robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft,  false);
-        _robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         _robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft,   false);
+        _robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         _robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight,  true);
 
         _robotDrive.setSafetyEnabled(true);
@@ -90,13 +83,13 @@ public class SysDriveTrain extends Subsystem
         _robotDrive.setSensitivity(0.5);
         _robotDrive.setMaxOutput(1.0);
 
-
-        _encoDriveRight = new Encoder(RobotMap.DIO_DRIVE_ENC_RIGHT_CHAN1, RobotMap.DIO_DRIVE_ENC_RIGHT_CHAN2, false, EncodingType.k4X);
+        // DEFINE ENCODERS FOR THE DRIVETRAIN
+        _encoDriveRight = new Encoder(RobotMap.DIO_ENC_DRIVE_RIGHT_CHAN1, RobotMap.DIO_ENC_DRIVE_RIGHT_CHAN2, false, EncodingType.k4X);
         LiveWindow.addSensor("SysDriveTrain", "Enco Drive Right", _encoDriveRight);
         _encoDriveRight.setDistancePerPulse(1.0);
         _encoDriveRight.setPIDSourceType(PIDSourceType.kRate);
 
-        _encoDriveLeft = new Encoder(RobotMap.DIO_DRIVE_ENC_LEFT_CHAN1, RobotMap.DIO_DRIVE_ENC_LEFT_CHAN2, false, EncodingType.k4X);
+        _encoDriveLeft = new Encoder(RobotMap.DIO_ENC_DRIVE_LEFT_CHAN1, RobotMap.DIO_ENC_DRIVE_LEFT_CHAN2, false, EncodingType.k4X);
         LiveWindow.addSensor("SysDriveTrain", "Enco Drive Left", _encoDriveLeft);
         _encoDriveLeft.setDistancePerPulse(1.0);
         _encoDriveLeft.setPIDSourceType(PIDSourceType.kRate);

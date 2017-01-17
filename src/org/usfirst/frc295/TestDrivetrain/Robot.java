@@ -11,7 +11,10 @@
 
 package org.usfirst.frc295.TestDrivetrain;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -39,9 +42,15 @@ public class Robot extends IterativeRobot
 
     // MAJOR SYSTEMS
     public static SysDriveTrain sysDriveTrain;
+    public static SysDriveTrainShifter sysDriveTrainShifter;
 
 
-
+    Joystick driver;  // set to ID 1 in DriverStation
+    JoystickButton high;
+    JoystickButton low;
+    DoubleSolenoid shifter;
+    public static final DoubleSolenoid.Value GearHigh = DoubleSolenoid.Value.kReverse;
+    public static final DoubleSolenoid.Value GearLow = DoubleSolenoid.Value.kForward;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -52,6 +61,7 @@ public class Robot extends IterativeRobot
 
         // Instantiate Subsystems needed by the OI
         sysDriveTrain = new SysDriveTrain();
+        //sysDriveTrainShifter = new SysDriveTrainShifter();
 
 
         // OI must be constructed after subsystems. If the OI creates Commands
@@ -68,6 +78,7 @@ public class Robot extends IterativeRobot
         
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(sysDriveTrain);
+        //SmartDashboard.putData(sysDriveTrainShifter);
     }
 
 

@@ -21,24 +21,29 @@ package org.usfirst.frc295.TestDrivetrain;
 public class RobotMap 
 {
 	
-	// CAN IDs
-    public static final   short  CAN_DRIVE_ESC_LEFT_FRONT             = 1;
-    public static final   short  CAN_DRIVE_ESC_LEFT_BACK              = 2;
-    public static final   short  CAN_DRIVE_ESC_RIGHT_FRONT            = 3;
-    public static final   short  CAN_DRIVE_ESC_RIGHT_BACK             = 4;	
+	// CAN IDs ARE UNIQUE PER DEVICE TYPE
+    public static final   short  CAN_ESC_DRIVE_LEFT_FRONT             = 0;
+    public static final   short  CAN_ESC_DRIVE_LEFT_BACK              = 1;
+    public static final   short  CAN_ESC_DRIVE_RIGHT_FRONT            = 2;
+    public static final   short  CAN_ESC_DRIVE_RIGHT_BACK             = 3;	
 
+    public static final   short  CAN_PCM_MODULE                       = 0;	
+    public static final   short  CAN_PCM_PORT_SHIFTER                 = 1;	
+    
+    
     // PWM PINS (0 - 20)
-    public static final   short  PWM_DRIVE_ESC_LEFT_FRONT             = 0;
-    public static final   short  PWM_DRIVE_ESC_LEFT_BACK              = 1;
-    public static final   short  PWM_DRIVE_ESC_RIGHT_FRONT            = 2;
-    public static final   short  PWM_DRIVE_ESC_RIGHT_BACK             = 3;
+    public static final   short  PWM_ESC_DRIVE_LEFT_FRONT             = 0;
+    public static final   short  PWM_ESC_DRIVE_LEFT_BACK              = 1;
+    public static final   short  PWM_ESC_DRIVE_RIGHT_FRONT            = 2;
+    public static final   short  PWM_ESC_DRIVE_RIGHT_BACK             = 3;
     
     // DIGITAL IO PINS
-    public static final   short  DIO_DRIVE_ENC_RIGHT_CHAN1            = 0;
-    public static final   short  DIO_DRIVE_ENC_RIGHT_CHAN2            = 1;
-    public static final   short  DIO_DRIVE_ENC_LEFT_CHAN1             = 2;
-    public static final   short  DIO_DRIVE_ENC_LEFT_CHAN2             = 3;
-
+    public static final   short  DIO_ENC_DRIVE_RIGHT_CHAN1            = 0;
+    public static final   short  DIO_ENC_DRIVE_RIGHT_CHAN2            = 1;
+    public static final   short  DIO_ENC_DRIVE_LEFT_CHAN1             = 2;
+    public static final   short  DIO_ENC_DRIVE_LEFT_CHAN2             = 3;
+    
+    
     public static void init()
     {
     }
